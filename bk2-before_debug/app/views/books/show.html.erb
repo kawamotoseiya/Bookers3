@@ -59,7 +59,7 @@
 			      <div class="comment-body bb">
 			        <div class="comment-avatar">
 			          <div class="avatar">
-			            <%= attachment_image_tag(@book.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
+			            <%= attachment_image_tag(book_comment.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
 			          </div>
 			        </div>
 			        <div class="comment-text">
@@ -81,6 +81,7 @@
 			    </li>
 			  <% end %>
 			</ol>
+			<%= notice %>
 			<%= form_for [@book, @book_comment] do |f| %>
 			  <div class="row">
 			    <div class="col-xs-12">

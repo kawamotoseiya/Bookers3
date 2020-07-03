@@ -4,7 +4,11 @@ class BookCommentsController < ApplicationController
 		  comment = current_user.book_comments.new(book_comment_params)
 		  comment.book_id = book.id
 		 if comment.save
+		 	flash[:success] = "Comment was successfully created."
 		    redirect_to book_path(book)
+		 else
+		 	redirect_to book_path(book), notice: 'Comment error'
+
 		 end
 	end
 	def destroy
