@@ -1,0 +1,39 @@
+<div class="container">
+<div class="row">
+<h1>search</h1>
+<table class="table table-hover table-inverse">
+		<% if @model=='book' %>
+		<tr>
+			<th></th>
+			<th>Title</th>
+			<th>Opinion</th>
+		</tr>
+		<% @datas.each do |book| %>
+		<tr>
+			<td>
+			<%= link_to user_path(book.user) do %>
+			<%= attachment_image_tag(book.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
+			<% end %>
+			</td>
+			<td><%= link_to book.title, book_path(book), class: "book_#{book.id}" %></td>
+			<td><%= book.body %></td>
+		</tr>
+		<% end %>
+		<% end %>
+		<% if @model=='user' %>
+		<tr>
+			<th>Image</th>
+			<th>Name</th>
+		</tr>
+		<% @datas.each do |user| %>
+		<tr>
+			<td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %></td>
+			<td><%= user.name %></td>
+		</tr>
+		<% end %>
+		<% end %>
+</table>
+</div>
+</div>
+
+
